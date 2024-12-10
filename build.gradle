@@ -1,0 +1,42 @@
+plugins {
+    id 'org.springframework.boot' version '3.4.0'
+    id 'io.spring.dependency-management' version '1.1.6'
+    id 'groovy'
+}
+
+group = 'com.twitterclone'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    jvmArgs += ['-XX:+EnableDynamicAgentLoading']
+}
+
+dependencies {
+    implementation("org.apache.groovy:groovy:${groovyVersion}")
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-groovy-templates'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation "io.jsonwebtoken:jjwt-api:${jwtVersion}"
+    implementation "io.jsonwebtoken:jjwt-impl:${jwtVersion}"
+    implementation "io.jsonwebtoken:jjwt-jackson:${jwtVersion}"
+    implementation("com.google.guava:guava:${guavaVersion}")
+
+    testImplementation "org.testcontainers:testcontainers:${testContainersVersion}"
+    testImplementation "org.testcontainers:mongodb:${mongodbVersion}"
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation("org.spockframework:spock-spring:${spockSpringVersion}")
+    testImplementation ("org.apache.groovy:groovy:${groovyVersion}")
+    testImplementation platform("org.junit:junit-bom:${junitVersion}")
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation "org.skyscreamer:jsonassert:${jsonassertVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}

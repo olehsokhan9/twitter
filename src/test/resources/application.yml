@@ -1,0 +1,19 @@
+server:
+  port: 8081
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: mydatabase
+#      username: testuser
+#      password: testpassword
+
+jwt:
+  secret: dhsajdJDHSAKDHjsahdjsahdkjsahJDSAHK2312312dashdjahakjdak8767678123kdsa
+
+#logging:
+#  level:
+#    org.springframework: DEBUG
+#    com.twitterclone: DEBUG
